@@ -1,0 +1,203 @@
+<html
+    __fvdsurfcanyoninserted="1"
+    class="
+        clickberry-extension
+        clickberry-extension-standalone
+        clickberry-extension
+        clickberry-extension-standalone
+        clickberry-extension
+        clickberry-extension-standalone
+    "
+>
+    <head>
+        <meta charset="UTF-8" />
+        <!-- 0. Phần icon của website (thay đổi link đến icon nếu bạn muốn sửa nó) -->
+        <link rel="shortcut icon" type="image/png" href="https://cdn-icons-png.flaticon.com/128/8036/8036693.png"/>
+
+        <!-- 1. Đây là phần title của website -->
+        <title>Happy Birthday</title>
+        <link rel="stylesheet" href="./style.css">
+        <script>
+            window.open = function () {};
+            window.print = function () {};
+            // Support hover state for mobile.
+            if (false) {
+                window.ontouchstart = function () {};
+            }
+        </script>
+        <script
+            type="text/javascript"
+            src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"
+        ></script>
+        <meta content="clickberry-extension-here" />
+    </head>
+
+    <body>
+        <link
+            href="https://fonts.googleapis.com/css?family=Wendy+One"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <div class="container">
+            <!-- 2. Dòng chữ Happy Birthday
+            Nếu bạn muốn thêm chữ vào thì phải thay đổi css tương ứng cho nó -->
+            <div class="balloon">
+                <div><span>H</span></div>
+                <div><span>A</span></div>
+                <div><span>P</span></div>
+                <div><span>P</span></div>
+                <div><span>Y</span></div>
+                <div><span>B</span></div>
+                <div><span>I</span></div>
+                <div><span>R</span></div>
+                <div><span>T</span></div>
+                <div><span>H</span></div>
+                <div><span>D</span></div>
+                <div><span>A</span></div>
+                <div><span>Y</span></div>
+                <br>
+            </div>
+            
+        
+            <div class="avatar">
+                <!-- 3. Avatar của người bạn muốn gởi lời chúc -->
+                <img src="./PAnh1.jpg" alt="" class="avatar__img" onclick="showMessage()" />
+                <!-- 4. Tên của người đó -->
+                <h1 onclick="showMessage()" class="avatar__title">Phương Anh Cutiiii  <3</div>
+                    </h1>
+            </div>
+            
+            <!-- 5. Phần nhạc -->
+            <!-- <audio id="player" autoplay loop>
+                <source src="./music.mp3" type="audio/mp3">
+            </audio> -->
+
+            <!-- <audio controls autoplay loop>
+                <source src="./music.mp3" type="audio/mpeg">
+            </audio> -->
+            <!-- <audio autoplay muted>
+                <source src="music.mp3" type="audio/mpeg">
+                Trình duyệt của bạn không hỗ trợ thẻ audio.
+              </audio> -->
+
+              <!-- <audio id="myAudio" autoplay muted>
+                <source src="music.mp3" type="audio/mpeg">
+                Trình duyệt của bạn không hỗ trợ thẻ audio.
+              </audio>
+              <button onclick="unmuteAudio()">Bật Âm Thanh</button> -->
+
+              <!-- <button onclick="playAudio()">Click hộ bố cái nó ko tự phát đc :((</button> -->
+              <button id="myButton" onclick="playAudio()">Click hộ bố cái nó ko tự phát đc :((</button>
+
+
+        </div>
+        <!-- <script>
+            if (document.location.search.match(/type=embed/gi)) {
+                window.parent.postMessage("resize", "*");
+            }
+            function showMessage() {
+                // 6. Lời nhắn hiện ra khi bấm vào tên hoặc avatar
+                
+                swal({
+                    title: "Lời nhắn", // Tiêu đề của popup
+                    // icon:"./meo1.jpg",
+                    text: "Sinh nhật vui vẻ nhaaaaaaaaaaaaa!", // Nội dung lời nhắn
+                    button: {
+                        text: "❤️️",
+                    },
+                });
+            }
+        </script> -->
+
+        <script>
+            if (document.location.search.match(/type=embed/gi)) {
+                window.parent.postMessage("resize", "*");
+            }
+            function showMessage() {
+                // Tạo một thẻ video để chứa video
+                var videoElement = document.createElement("video");
+                videoElement.src = "Video2.mp4"; // Thay thế "your-video.mp4" bằng đường dẫn đến video của bạn
+                videoElement.autoplay = true;
+                videoElement.loop = true;
+                // videoElement.muted = true;
+                videoElement.style.width = "50%";
+                videoElement.style.height = "auto";
+        
+                // Chèn video vào thông báo SweetAlert
+                var swalContent = document.createElement("div");
+                swalContent.appendChild(videoElement);
+        
+                // Hiển thị thông báo với video
+                swal({
+                    title: "Lời nhắn",
+                    content: swalContent,
+                    text: "Sinh nhật vui vẻ nhaaaaaaaaaaaaa!",
+                    button: {
+                        text: "❤️️",
+                    },
+                    className: "video-alert", // Thêm một class để tùy chỉnh CSS
+                    closeOnClickOutside: false // Không đóng thông báo khi click bên ngoài
+                });
+            }
+        </script>
+
+        <!-- <script>
+            function showMessage() {
+                // Tạo một thẻ video để chứa video
+                var videoElement = document.createElement("video");
+                videoElement.src = "Video2.mp4"; // Thay thế "your-video.mp4" bằng đường dẫn đến video của bạn
+                videoElement.autoplay = true;
+                videoElement.loop = true;
+                // videoElement.muted = true;
+                videoElement.style.width = "50%";
+                videoElement.style.height = "auto";
+        
+                // Tạo một thẻ canvas để vẽ hiệu ứng pháo nổ
+                var canvas = document.createElement("canvas");
+                canvas.width = 100;
+                canvas.height = 100;
+                var ctx = canvas.getContext("2d");
+        
+                // Vẽ hiệu ứng pháo nổ vào canvas
+                ctx.fillStyle = "red"; // Màu của pháo nổ
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+                // Chèn canvas vào thông báo SweetAlert
+                var swalContent = document.createElement("div");
+                swalContent.appendChild(videoElement);
+                swalContent.appendChild(canvas);
+        
+                // Hiển thị thông báo với video và hiệu ứng pháo nổ
+                swal({
+                    title: "Lời nhắn",
+                    content: swalContent,
+                    text: "Sinh nhật vui vẻ nhaaaaaaaaaaaaa!",
+                    button: {
+                        text: "❤️️",
+                    },
+                    className: "video-alert", // Thêm một class để tùy chỉnh CSS
+                    closeOnClickOutside: false // Không đóng thông báo khi click bên ngoài
+                });
+
+            }
+        </script> -->
+        
+        
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        
+                <script>
+                    function playAudio() {
+                        var audio = new Audio("./music.mp3");
+                        audio.addEventListener('ended', function() {
+                            // Khi âm thanh kết thúc, gọi lại hàm playAudio() để phát lại âm thanh
+                            playAudio();
+                        });
+                        audio.play();
+                        document.getElementById("myButton").style.display = "none";
+                    }
+                </script>
+
+
+                
+    </body>
+</html>
